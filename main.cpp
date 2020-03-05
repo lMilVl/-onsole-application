@@ -1,16 +1,38 @@
 #include <iostream>
 #include "lesson4.h"
+#include <cstdlib>
+#include <sstream>
 
 using namespace std;
 
-int main()
+int main(int argc, char * argv[])
 {
-    int a, b;
 
-        cout << "Enter the first number: ";
-        cin >> a;
-        cout << "Enter the second number: ";
-        cin >> b;
+        if(argc < 3) {
+        // вывести сообщение об ошибке и завершить работу программы
+        std::cerr << "Missing parameters" << std::endl;
+        return 1;
+        }
+        int a, b;
+
+        istringstream astr(argv[1]), bstr(argv[2]);
+
+        astr >> a;
+        bstr >> b;
+        if(astr.fail() || !astr.eof()) {
+        // вывести сообщение об ошибке и завершить работу программы
+        std::cerr << "A must be an integer" << std::endl;
+        return 2;
+        }
+
+
+        if(bstr.fail() || !bstr.eof()) {
+        // вывести сообщение об ошибке и завершить работу программы
+        std::cerr << "B must be an integer" << std::endl;
+        return 2;
+        }
+
+
         auto result = ListOfPrimeNumbers(a, b);
         cout << "Result: ";
 
