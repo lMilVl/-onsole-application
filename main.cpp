@@ -24,12 +24,28 @@ int main(int argc, char * argv[])
         std::cerr << "A must be an integer" << std::endl;
         return 2;
         }
+        else if (a < 0)
+        {
+            std::cerr << "A must be a positive";
+            return 2;
+        }
 
 
         if(bstr.fail() || !bstr.eof()) {
         // вывести сообщение об ошибке и завершить работу программы
         std::cerr << "B must be an integer" << std::endl;
         return 2;
+        }
+        else if (b < 0)
+        {
+            std::cerr << "B must be a positive";
+            return 2;
+        }
+
+        if (a > b)
+        {
+            std:: cerr << "A must be less than B";
+            return 2;
         }
 
 
