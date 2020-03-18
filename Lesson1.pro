@@ -22,9 +22,6 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    lab1.h
-
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/release/ -lLesson4
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/debug/ -lLesson4
